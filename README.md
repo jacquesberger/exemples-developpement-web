@@ -21,3 +21,7 @@ Les exemples pour le framework Flask sont dans le répertoire [/Flask](/Flask).
 
 * [Héritage de layout avec Jinja2](/Flask/structure-base-layout-extends) : Une
   application Flask utilisant la mécanique d'héritage de templates en Jinja2.
+
+* [POST-Redirect-GET](/Flask/formulaire) : Une application Flask illustrant la
+  soumission d'un formulaire HTML avec le patron POST-Redirect-GET. Cet exemple
+  n'a pas de base de données, ni de validation des données du formulaire.
