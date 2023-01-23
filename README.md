@@ -25,3 +25,8 @@ Les exemples pour le framework Flask sont dans le répertoire [/Flask](/Flask).
 * [POST-Redirect-GET](/Flask/formulaire) : Une application Flask illustrant la
   soumission d'un formulaire HTML avec le patron POST-Redirect-GET. Cet exemple
   n'a pas de base de données, ni de validation des données du formulaire.
+
+## SQLite
+
+Les exemples pour SQLite sont dans le répertoire [/SQLite](/SQLite). On y
+retrouve du code Python pour les opérations CRUD des données dans SQLite.
