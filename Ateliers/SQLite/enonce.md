@@ -16,7 +16,7 @@ Exercices
 ---------
 
 1. À partir de la console SQLite, créez une base de données (avec `.read`) en
-   utilisant ce [script SQL](https://github.com/jacquesberger/exemplesINF3005/blob/master/SQLite/musique.sql).
+   utilisant ce [script SQL](musique.sql).
 
 2. Écrivez un programme qui va afficher à l'écran la liste numérotée des artistes
    dans la BD. Lorsque l'utilisateur choisit un artiste en particulier (en
