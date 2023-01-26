@@ -29,6 +29,11 @@ Les exemples pour le framework Flask sont dans le répertoire [/Flask](/Flask).
 * [BD SQLite](/Flask/db) : Une application Flask utilisant une base de données
   SQLite.
 
+## HTML
+
+Les exemples pour HTML sont dans le répertoire [/HTML](/HTML). On y retrouve
+plusieurs exemples pour les balises importantes du cours.
+
 ## SQLite
 
 Les exemples pour SQLite sont dans le répertoire [/SQLite](/SQLite). On y

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Formatage des paragraphes</title>
+</head>
+<body>
+
+	<p>Ceci est un extrait de mon rapport synthèse de maîtrise :</p>
+
+	<p>Au tout début du projet, il n'était pas prévu d'écrire des
+		prototypes de classes et de script SQL représentant ce qui devrait
+		être généré par le générateur de code. Le projet débutait par la
+		définition de la grammaire du métalangage du générateur. Il était
+		nécessaire, afin de s'assurer que le métalangage soit complet et
+		contienne tout ce qui était requis pour générer tout le code voulu,
+		d'écrire les prototypes.</p>
+
+	<p>En plus d'offrir une possibilité de réflexion et de correction
+		de la grammaire du métalangage, les prototypes permettent de tester le
+		matériel à générer afin de s'assurer qu'il est exempt d'erreurs et
+		qu'il ne manque pas de fonctionnalités.</p>
+
+	<p>L'écriture des prototypes a prolongé le temps de développement
+		de la première itération, mais cet investissement était nécessaire.
+		L'écriture des prototypes a grandement favorisé la réflexion sur le
+		code généré et plusieurs décisions concernant la conception des
+		classes générées ont été révisées. Par exemple, la première idée
+		concernant la gestion des clés primaires (identifiants uniques) lors
+		de l'ajout d'un nouvel enregistrement à la base de données ne
+		fonctionnait pas correctement. Le prototypage a permis de déceler
+		cette erreur de conception. Bien sûr, le prototypage contient une
+		bonne série de tests sur les classes, ce qui permet de trouver
+		plusieurs petites erreurs de conception des classes.</p>
+
+	<p>Le prototypage du script SQL a lui aussi permis de trouver une
+		solution à un problème important. Le problème est l'ordre dans lequel
+		il faut générer les instructions de déclaration de table en
+		considérant les relations entre les tables, car une table ne peut
+		avoir une clé étrangère que sur une table qui a déjà été déclarée
+		auparavant. La solution est très simple et bien connue : il s'agit
+		d'ajouter les identifiants qui serviront de clés étrangères aux tables
+		qui en auront, de générer les tables dans n'importe quel ordre et de
+		définir les contraites d'intégrité à l'aide d'instructions ALTER TABLE
+		après les déclarations de tables. Bien que cette solution soit bien
+		connue, ce problème n'avait pas été abordé ni pensé au départ; c'est
+		plus précisément à la génération du code SQL que le problème serait
+		survenu. À ce niveau, la correction aurait été beaucoup plus
+		compliquée à effectuer.</p>
+
+</body>
+</html>

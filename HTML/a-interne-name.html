@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Lien interne dans une page</title>
+</head>
+<body>
+	<p>
+		Un lien interne vers <a href="#figure">la figure</a>.
+	</p>
+
+	<p>L'outil développé dans le cadre de ce projet génère un script
+		SQL pour créer les tables de la base de données, ainsi que les
+		contraintes d'unicité et les contraintes d'intégrité. Évidemment, le
+		script généré est conçu pour fonctionner avec MySQL 5.0 mais le
+		générateur a été conçu de façon à générer du code contenant le moins
+		possible de code spécifique à MySQL et en visant le plus possible la
+		norme SQL2. De cette façon, le jour où nous voudrons étendre l'outil
+		pour qu'il supporte plusieurs SGBD (Système de Gestion de Base de
+		Données), très peu d'adaptations seront nécessaires.</p>
+
+	<p>La correspondance entre les spécifications en métalangage et le
+		script SQL est assez proche. On génère une table de base de données
+		pour chacune des entités, c'est-à-dire qu'une instruction CREATE TABLE
+		est générée pour chaque entité. Chaque table générée contient un champ
+		de type INTEGER, servant d'identifiant (ID), qui est généré
+		automatiquement en plus de tous les autres champs de l'entité. Ce
+		champ ajouté est la clé primaire de la table. Une correspondance est
+		aussi faite entre les types du métalangage et les types SQL. Encore
+		une fois, on tente le plus possible d'utiliser les types SQL2 plutôt
+		que ceux de MySQL.</p>
+
+	<p>Les relations de type un-à-plusieurs sont représentées selon la
+		réalisation la plus courante, c'est-à-dire qu'on ajoute une clé
+		étrangère, soit un champ représentant l'identifiant d'un
+		enregistrement d'une autre table. La clé est placée dans la table
+		ayant la plus petite multiplicité. La figure illustre une instruction
+		CREATE TABLE contenant des relations vers d'autres tables.</p>
+
+	<pre>
+\begin{figure}[tb]
+\begin{MyMinipage}
+\begin{CodeSource}
+CREATE TABLE ITEM (
+  ITEM_ID INTEGER NOT NULL,
+  STYLE VARCHAR(8),
+  VENDOR VARCHAR(255),
+  COLOR_ID INTEGER NOT NULL,
+  SIZE_ID INTEGER NOT NULL,
+  SUBDEPARTMENT_ID INTEGER NOT NULL,
+  CONSTRAINT PK_ITEM PRIMARY KEY (ITEM_ID)
+);
+\end{CodeSource}
+\end{MyMinipage}
+\vspace{-1em}
+\caption{Instruction de création de table.}
+\label{fig:createtable}
+\end{figure}
+</pre>
+
+	<p>Les relations \textit{plusieurs-à-plusieurs} sont légèrement
+		plus compliquées à traiter. Pour ces relations, il est nécessaire de
+		créer une nouvelle table qui ne s'occupera que de cette
+		relation\cite{godin2003}\cite{rumbaugh91}. Une telle table contient
+		donc trois colonnes, un identifiant, l'identifiant d'une des deux
+		tables et l'identifiant de l'autre table.</p>
+
+	<p>On peut remarquer dans la figure \ref{fig:createtable} que les
+		contraites de clés étrangères et d'unicité ne sont pas incluses dans
+		cette instruction. Ces contraintes sont faites dans des instructions
+		\textit{ALTER TABLE} à la fin du script. On applique cette démarche
+		pour simplifier la génération du code. Lorsqu'on fait directement
+		référence à une autre table dans une instruction de création de table,
+		cette dernière doit déjà exister. Ceci complexifie la génération du
+		script puisqu'il faut générer les tables dans un ordre très précis.
+		Les contraintes d'unicité auraient pu être faites directement à la
+		création de la table, sans conséquences. En générant les contraintes
+		d'intégrité référentielles à la fin, nous pouvons générer les tables
+		et les contraintes dans n'importe quel ordre.</p>
+
+	<pre>
+\begin{figure}[tb]
+\begin{MyMinipage}
+\begin{CodeSource}
+ALTER TABLE ITEM ADD (
+  CONSTRAINT FK_ITEM_COLOR 
+  FOREIGN KEY (COLOR_ID) 
+  REFERENCES COLOR(COLOR_ID));
+\end{CodeSource}
+\end{MyMinipage}
+\vspace{-1em}
+\caption{Instruction d'intégrité référentielle.}
+\label{fig:alterfk}
+\end{figure}
+
+\begin{figure}[tb]
+\begin{MyMinipage}
+\begin{CodeSource}
+CREATE UNIQUE INDEX INDEX_ITEM1 ON ITEM(STYLE);
+\end{CodeSource}
+\end{MyMinipage}
+\vspace{-1em}
+\caption{Instruction d'unicité.}
+\label{fig:unique}
+\end{figure}
+</pre>
+
+	<p>Les figures \ref{fig:alterfk} et \ref{fig:unique} illustrent les
+		instructions pour appliquer les contraintes d'intégrité référentielles
+		et les contraintes d'unicité.</p>
+
+	<p>Un POJO est un objet Java ordinaire\cite{fowler}, n'étant pas un
+		Entity Bean ou un autre type d'objet de la grosse architecture EJB
+		(\textit{Enterprise JavaBeans}). C'est un objet Java tout ce qu'il y a
+		de plus commun.</p>
+
+	<p>Un POJO par entité est généré et les POJOs ne contiennent à peu
+		près que des champs, accesseurs et modifieurs (\textit{getters} et
+		\textit{setters}). En effet, chaque champ de l'entité deviendra un
+		champ privé dans l'objet Java avec un accesseur et un modifieur
+		publics. Le nom du POJO est le même nom que l'entité et les noms des
+		champs sont aussi conservés; la seule différence avec les noms du
+		fichier de spécifications réside dans le fait que les noms sont
+		transformés de façon à respecter les normes de Sun\cite{javacode}
+		relativement aux noms des classes et variables. Le champ de type
+		entier servant d'identifiant pour l'enregistrement au niveau de la
+		base de données est aussi ajouté au POJO. Cet identifiant servira
+		entre autres à déterminer si l'enregistrement devra être ajouté ou
+		modifié à la base de données. Ce point sera d'ailleurs détaillé dans
+		une prochaine section. Un constructeur sans paramètre est aussi ajouté
+		au POJO. La figure \ref{fig:pojo} illustre un POJO généré à partir
+		d'une entité n'ayant qu'un seul champ et aucune relation.</p>
+
+	<pre>
+<a id="figure">\begin{figure}[tb]</a>
+\begin{MyMinipage}
+\begin{CodeSource}
+public class Color {
+    public Color() {
+    }
+    private Integer id = null;
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer newId) {
+        id = newId;
+    }
+    private String name = null;
+    public String getName() {
+        return name;
+    }
+    public void setName(String newValue) {
+        name = newValue;
+    }
+}
+\end{CodeSource}
+\end{MyMinipage}
+\vspace{-1em}
+\caption{Exemple de POJO.}
+\label{fig:pojo}
+\end{figure}
+</pre>
+
+	<p>Les contraintes d'unicité ne sont pas visibles au niveau des
+		POJOs mais les relations entre les entités le sont. Pour simplifier
+		l'implémentation du générateur de code, les relations entre les
+		entités sont faites avec les identifiants au lieu d'utiliser des
+		références vers des objets. Les relations sont représentées dans les
+		deux sens au niveau des POJOs, ce qui n'est pas le cas au niveau de la
+		base de données. Par exemple, si une entité possède une relation
+		\textit{un-à-plusieurs} vers une autre entité, alors l'entité du côté
+		\textit{plusieurs} (donc qui a un lien vers une entité) possèdera
+		quant à lui un champ entier représentant l'identifiant de l'objet en
+		relation. Des accesseurs et modifieurs sont aussi fournis pour ces
+		champs. De l'autre côté de la relation, c'est une collection
+		d'identifiants qui est générée. Un accesseur pour la collection est
+		généré, ainsi que des méthodes pour l'ajout et la suppression
+		d'identifiants. La figure \ref{fig:relationpojo} illustre ce cas (une
+		entité avec une relation vers plusieurs objets Item).</p>
+
+	<pre>
+\begin{figure}[tb]
+\begin{MyMinipage}
+\begin{CodeSource}
+    private ArrayList itemList = new ArrayList();
+    public void addItem(Integer itemId) {
+        itemList.add(itemId);
+    }
+    public void removeItem(Integer itemId) {
+        itemList.remove(itemId);
+    }
+    public ArrayList getItemList() {
+        return itemList;
+    }
+\end{CodeSource}
+\end{MyMinipage}
+\vspace{-1em}
+\caption{Une relation dans un POJO.}
+\label{fig:relationpojo}
+\end{figure}
+
+	
+	
+	</pre>
+
+	<p>Les POJOs peuvent être instanciés directement par l'utilisateur
+		ou par un DAO.</p>
+
+	<p>Un DAO est un objet servant à faire le lien entre la structure
+		des données dans la base de données et un objet Java\cite{godin2003}.
+		De cette façon, l'objet représentant l'entité n'a pas à se soucier de
+		la structure des tables de la base de données; c'est le DAO qui
+		s'occupe de toutes les opérations d'ajouts, de modifications, de
+		suppressions et d'interrogations de la base de données. Toutes ces
+		requêtes SQL sont codées dans le DAO et non dans l'objet représentant
+		l'entité du domaine.</p>
+
+	<p>C'est JDBC (\textit{Java DataBase Connectivity}) qui a été
+		choisi pour l'implémentation des DAOs. Cette décision s'est à peu près
+		imposée d'elle-même par rapport à l'utilisation d'EJB ou d'un tout
+		autre système de persistance. Tout d'abord, le code en JDBC est simple
+		et naturel, contrairement à EJB. Le développeur peut alors lire le
+		code généré et le comprendre facilement. À la limite, ce projet
+		pourrait même servir d'outil pédagogique pour apprendre le SQL, le
+		Java et la façon de lier les deux ensembles. Ensuite, l'utilisation de
+		JDBC ne requiert aucune installation ni de fichier JAR (\textit{Java
+		ARchive}) supplémentaires. Finalement, le code JDBC est
+		particulièrement rapide par rapport aux autres possibilités
+		d'implémentation de système de persistance. La raison en est bien
+		simple : JDBC utilise un \textit{driver} pour se connecter directement
+		à la base de données. Les autres systèmes de persistance ont des
+		anté-mémoires et divers mécanismes intéressants mais qui ralentissent
+		les requêtes SQL.</p>
+
+	<p>Les DAOs générés offrent plusieurs fonctionnalités de base. La
+		figure \ref{fig:interfacedao} illustre les fonctionnalités offertes
+		par un DAO. Dans cet exemple, le code des méthodes a été omis
+		volontairement.</p>
+</body>
+</html>
