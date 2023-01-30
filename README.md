@@ -34,7 +34,12 @@ Les exemples pour le framework Flask sont dans le répertoire [/Flask](/Flask).
 Les exemples pour HTML sont dans le répertoire [/HTML](/HTML). On y retrouve
 plusieurs exemples pour les balises importantes du cours.
 
-## SQLite
+## Python
 
-Les exemples pour SQLite sont dans le répertoire [/SQLite](/SQLite). On y
-retrouve du code Python pour les opérations CRUD des données dans SQLite.
+Les exemples en Python sont dans le répertoire [/Python](/Python).
+
+* [Authentification](/Python/Authentification) : Des exemples de code Python
+  pour l'enregistrement et la vérification de mots de passe avec un salt.
+
+* [SQLite](/Python/SQLite) : Des exemples de manipulation des données stockées
+  dans SQLite.
