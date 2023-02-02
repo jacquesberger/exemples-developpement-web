@@ -9,6 +9,12 @@ de ce matériel doit être conforme à la [LICENSE](LICENSE).
 
 # Matériel
 
+## CSS
+
+Les exemples de CSS sont dans le répertoire [/CSS](/CSS). Le répertoire contient
+aussi des fichiers HTML pour montrer l'intégration du CSS dans les documents
+HTML.
+
 ## Flask
 
 Les exemples pour le framework Flask sont dans le répertoire [/Flask](/Flask).

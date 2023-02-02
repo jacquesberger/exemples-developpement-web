@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>INF2005 : Exemple CSS</title>
+    <style type="text/css">
+body {
+    margin: 0px;
+    background: #101010;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #72809F;
+}
+
+h1,h2 {
+    margin: 0px;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 44px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+p,ul,ol {
+    margin-top: 0px;
+    line-height: 240%;
+    text-align: justify;
+}
+
+a {
+    color: #ADBFE1;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#header {
+    width: 960px;
+    height: 160px;
+    margin: auto;
+}
+
+#menu {
+    float: left;
+    width: 900px;
+    height: 44px;
+}
+
+#menu ul {
+    padding: 0px;
+    list-style: none;
+    line-height: normal;
+}
+
+#menu li {
+    display: block;
+    float: left;
+    background: #182739;
+}
+
+#menu a {
+    float: left;
+    height: 34px;
+    padding: 30px 30px 0px 30px;
+    text-align: center;
+    font-weight: normal;
+    color: #FFFFFF;
+}
+
+#page {
+    width: 960px;
+    margin: 0px auto 20px auto;
+}
+
+#logo {
+    width: 960px;
+    height: 100px;
+    margin: auto;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: #FFFFFF;
+}
+
+#logo h1 {
+    padding-top: 80px;
+    font-size: 52px;
+    font-style: italic;
+    text-transform: lowercase;
+}
+
+#content {
+    float: right;
+    width: 640px;
+    padding: 40px 30px 0px 20px;
+}
+
+.post {
+    margin-bottom: 45px;
+    padding-bottom: 30px;
+    border-bottom: #203253 dashed 1px;
+}
+
+.post .title {
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 28px;
+    color: #FFFFFF;
+    border-bottom: 4px dashed #203253;
+}
+
+.post .date {
+    color: #FFFFFF;
+}
+
+.post .meta {
+    margin-left: 2px;
+    padding: 4px 30px 0px 0px;
+    font-weight: normal;
+    font-size: 10px;
+    font-style: italic;
+}
+
+.post .meta a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.post .entry {
+    padding: 10px 0px 20px 0px;
+}
+
+.post .links {
+    height: 18px;
+    margin: 0px 0px 4px 0px;
+    padding: 6px 10px 5px 10px;
+    background: #182739;
+    font-size: 11px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#sidebar {
+    float: left;
+    width: 250px;
+    padding-top: 40px;
+}
+
+#sidebar ul {
+    padding: 0px;
+    list-style: none;
+}
+
+#sidebar p {
+    padding-top: 10px;
+    line-height: 200%;
+}
+
+#sidebar h2 {
+    height: 37px;
+    padding: 15px 0px 0px 20px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#footer {
+    height: 110px;
+}
+
+#footer p {
+    text-align: center;
+    font-size: 12px;
+    line-height: normal;
+}
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+        <ul>
+          <li><a href="index-entete-css.html">Accueil</a>
+          </li>
+          <li><a href="contenu.html">Contenu</a>
+          </li>
+          <li><a href="materiel.html">Matériel</a>
+          </li>
+          <li><a href="mailto:berger.jacques@uqam.ca">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="logo">
+        <h1>INF2005</h1>
+        <h2>Programmation web</h2>
+      </div>
+    </div>
+
+    <div id="page">
+      <div id="sidebar">
+        <ul>
+          <li>
+            <h2>Du texte...</h2>
+            <p>En plus d'offrir une possibilité de réflexion et de
+              correction de la grammaire du métalangage, les prototypes
+              permettent de tester le matériel à générer afin de s'assurer qu'il
+              est exempt d'erreurs et qu'il ne manque pas de fonctionnalités.</p></li>
+
+          <li>
+            <h2>Encore du texte...</h2>
+            <p>Toujours plus de texte. On adore ça!!!</p>
+            <p>Toujours plus de texte. On adore ça!!!</p></li>
+        </ul>
+      </div>
+
+      <div id="content">
+        <div class="post">
+          <p class="meta">
+            <span class="date">Mercredi, le 7 septembre 2011 18:00</span>
+            Publié par <a href="mailto:berger.jacques@uqam.ca">Jack</a>
+          </p>
+          <h2 class="title">Exemple de post</h2>
+          <div class="entry">
+            <p>Il est toujours difficile de trouver du texte pertinent à
+              écrire dans un exemple de page web. Heureusement pour nous, nous
+              ne sommes pas les premières personnes à avoir ce problème. Il a
+              été démontré, il y a fort longtemps, que les lecteurs sont plus
+              intéressés par le contenu texte de l'exemple que par sa
+              présentation. Donc, pour garder le lecteur intéressé à la
+              présentation, on met du texte qui ressemble à du vrai texte mais
+              qui n'est pas lisible par le lecteur. Ainsi est né Lorem Ipsum.</p>
+            <p>
+              On ajoute également un exemple de lien : <a
+                href="http://www.lipsum.com/">Lorem ipsum</a>
+            </p>
+          </div>
+          <div>
+            <a href="article.html" class="links">Lire l'article au complet</a>
+          </div>
+        </div>
+
+        <div id="footer">
+          <p>
+            Copyright &copy; 2011 Jacques Berger. Tous droits réservés. Design
+            par <a href="http://www.freecsstemplates.org/">Free CSS
+              Templates</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
