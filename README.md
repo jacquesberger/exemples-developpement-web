@@ -41,5 +41,8 @@ Les exemples en Python sont dans le répertoire [/Python](/Python).
 * [Authentification](/Python/Authentification) : Des exemples de code Python
   pour l'enregistrement et la vérification de mots de passe avec un salt.
 
+* [GMail](/Python/Gmail) : Un exemple de code Python pour envoyer un courriel
+  par le serveur SMTP de Google.
+
 * [SQLite](/Python/SQLite) : Des exemples de manipulation des données stockées
   dans SQLite.
