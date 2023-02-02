@@ -29,6 +29,9 @@ Les exemples pour le framework Flask sont dans le répertoire [/Flask](/Flask).
 * [BD SQLite](/Flask/db) : Une application Flask utilisant une base de données
   SQLite.
 
+* [Authentification et session](/Flask/authentification) : Une application Flask
+  mettant en place une authentification avec salt et une gestion de session.
+
 ## HTML
 
 Les exemples pour HTML sont dans le répertoire [/HTML](/HTML). On y retrouve
