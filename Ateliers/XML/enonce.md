@@ -14,7 +14,7 @@ Objectifs
 Exercices
 ---------
 
-1. À l'aide de [http://www.xmlvalidation.com/](http://www.xmlvalidation.com/), identifiez et
+1. À l'aide de [cet outil](https://www.liquid-technologies.com/online-xml-validator), identifiez et
    corrigez les erreurs dans ce [document](xml_avec_erreurs.xml).
 
 2. Modélisez un document XML contenant un dossier médical, avec les champs
