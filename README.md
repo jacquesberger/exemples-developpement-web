@@ -46,6 +46,11 @@ Les exemples pour le framework Flask sont dans le répertoire [/Flask](/Flask).
 Les exemples pour HTML sont dans le répertoire [/HTML](/HTML). On y retrouve
 plusieurs exemples pour les balises importantes du cours.
 
+## JSON
+
+Les exemples pour JSON sont dans le répertoire [/JSON](/JSON). On y retrouve
+quelques exemples de documents JSON.
+
 ## Python
 
 Les exemples en Python sont dans le répertoire [/Python](/Python).
@@ -58,3 +63,8 @@ Les exemples en Python sont dans le répertoire [/Python](/Python).
 
 * [SQLite](/Python/SQLite) : Des exemples de manipulation des données stockées
   dans SQLite.
+
+## XML
+
+Les exemples pour XML sont dans le répertoire [/XML](/XML). On y retrouve
+quelques exemples de documents XML.
