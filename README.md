@@ -38,6 +38,9 @@ Les exemples pour le framework Flask sont dans le répertoire [/Flask](/Flask).
 * [Authentification et session](/Flask/authentification) : Une application Flask
   mettant en place une authentification avec salt et une gestion de session.
 
+* [Stockage d'images](/Flask/files) : Une application Flask mettant en place le
+  téléversement et le stockage d'images dans la base de données.
+
 ## HTML
 
 Les exemples pour HTML sont dans le répertoire [/HTML](/HTML). On y retrouve
