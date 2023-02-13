@@ -41,6 +41,12 @@ Les exemples pour le framework Flask sont dans le répertoire [/Flask](/Flask).
 * [Stockage d'images](/Flask/files) : Une application Flask mettant en place le
   téléversement et le stockage d'images dans la base de données.
 
+* [Services REST](/Flask/api) : Une application Flask mettant en place des
+  services REST.
+
+* [Requêtes asynchrones](/Flask/ajax) : Une application Flask mettant en oeuvre
+  des requêtes asynchrones de type Ajax.
+
 ## HTML
 
 Les exemples pour HTML sont dans le répertoire [/HTML](/HTML). On y retrouve
