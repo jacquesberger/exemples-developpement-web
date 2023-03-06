@@ -1,0 +1,87 @@
+#%RAML 1.0
+title: Example of REST API for INF5190
+mediaType: application/json
+types:
+  NewPerson:
+    properties:
+      lastname:
+        type: string
+        required: true
+      firstname:
+        type: string
+        required: true
+      age:
+        type: number
+        required: true
+  ExistingPerson:
+    properties:
+      id:
+        type: string
+        required: true
+      lastname:
+        type: string
+        required: true
+      firstname:
+        type: string
+        required: true
+      age:
+        type: number
+        required: true
+/api:
+  /person:
+    get:
+      description: Extract the data of all the persons.
+      responses:
+        200:
+          body:
+            application/json:
+              type: ExistingPerson[]
+    post:
+      description: Create a new person.
+      body:
+        application/json:
+          type: NewPerson
+          example:
+            lastname: Jackson
+            firstname: Michael
+            age: 54
+      responses:
+        201:
+          description: The person was successfully created.
+          body:
+            application/json:
+              type: ExistingPerson
+              example:
+                id: 5
+                lastname: Jackson
+                firstname: Michael
+                age: 54
+    /{id}:
+      get:
+        description: Extract the data of one person, specified by it's id.
+        responses:
+          200:
+            body:
+              application/json:
+                type: ExistingPerson
+          404:
+            description: The specified identifier does not exist.
+      put:
+        description: Modify the data of one person, specified by it's id. It is not possible to change the id.
+        body:
+          application/json:
+            type: ExistingPerson
+        responses:
+          200:
+            body:
+              application/json:
+                type: ExistingPerson
+          404:
+            description: The specified identifier does not exist.
+      delete:
+        description: Delete completely the data of a person, specified by it's id.
+        responses:
+          200:
+            description: The person was deleted successfully.
+          404:
+            description: The specified identifier does not exist.

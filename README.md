@@ -47,6 +47,9 @@ Les exemples pour le framework Flask sont dans le répertoire [/Flask](/Flask).
 * [Requêtes asynchrones](/Flask/ajax) : Une application Flask mettant en oeuvre
   des requêtes asynchrones de type Ajax.
 
+* [API complet](/Flask/rest) : Une appication Flask mettant en oeuvre des
+  services REST avec validation json-schema et documentation RAML.
+
 ## HTML
 
 Les exemples pour HTML sont dans le répertoire [/HTML](/HTML). On y retrouve
