@@ -60,6 +60,9 @@ plusieurs exemples pour les balises importantes du cours.
 Les exemples pour JSON sont dans le répertoire [/JSON](/JSON). On y retrouve
 quelques exemples de documents JSON.
 
+* [Validation json-schema](/JSON/json-schema) : Exemple de validation d'un
+  document JSON avec la notation json-schema.
+
 ## Python
 
 Les exemples en Python sont dans le répertoire [/Python](/Python).
@@ -77,3 +80,12 @@ Les exemples en Python sont dans le répertoire [/Python](/Python).
 
 Les exemples pour XML sont dans le répertoire [/XML](/XML). On y retrouve
 quelques exemples de documents XML.
+
+* [Validation DTD](/XML/DTD) : Exemple de validation d'un document XML avec la
+  notation DTD.
+
+* [Validation RELAX NG](/XML/RELAX-NG) : Exemple de validation d'un document XML avec la
+  notation RELAX-NG.
+
+* [Validation XSD](/XML/XSD) : Exemples de validation d'un document XML avec la
+  notation XSD.
