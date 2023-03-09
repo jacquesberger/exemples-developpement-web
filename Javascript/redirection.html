@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirection in 5 seconds</title>
+    <script>
+      function redirect() {
+        window.location = "http://rickrolled.fr/";
+      }
+
+      function timedEvent() {
+        setTimeout('redirect();', 5000);
+      }
+    </script>
+  </head>
+  <body onload="timedEvent();">
+      <p>You will be redirected in 5 seconds.</p>
+  </body>
+</html>

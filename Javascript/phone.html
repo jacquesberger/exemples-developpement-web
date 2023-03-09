@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Numéro de téléphone</title>
+
+    <script>
+      function activateTextBoxIfFull(currentId, nextId) {
+        var textBox = document.getElementById(currentId);
+        if (textBox.value.length == textBox.getAttribute("maxlength")) {
+          document.getElementById(nextId).focus();
+        }
+      }
+    </script>
+
+  </head>
+  <body>
+    <div>
+      <span>Entrez votre numéro de téléphone : </span>
+      <span>(</span>
+      <input id="part1" type="text" maxlength="3" style="width:30px" onkeyup="activateTextBoxIfFull('part1', 'part2');" />
+      <span>)</span>
+      <input id="part2" type="text" maxlength="3" style="width:30px" onkeyup="activateTextBoxIfFull('part2', 'part3');" />
+      <span>-</span>
+      <input id="part3" type="text" maxlength="4" style="width:40px" />
+    </div>
+  </body>
+</html>

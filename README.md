@@ -55,6 +55,11 @@ Les exemples pour le framework Flask sont dans le répertoire [/Flask](/Flask).
 Les exemples pour HTML sont dans le répertoire [/HTML](/HTML). On y retrouve
 plusieurs exemples pour les balises importantes du cours.
 
+## Javascript
+
+Les exemples pour Javascript sont dans le répertoire [/Javascript](/Javascript).
+On y retrouve plusieurs exemples de JS pour le front-end.
+
 ## JSON
 
 Les exemples pour JSON sont dans le répertoire [/JSON](/JSON). On y retrouve

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Couleurs</title>
+
+    <script>
+      function changeBGColor(colorName) {
+        var bodyElement = document.getElementsByTagName("body")[0];
+        bodyElement.style.backgroundColor = colorName;
+      }
+      
+      function resetBGColor() {
+        changeBGColor("white");
+      }
+    </script>
+
+  </head>
+  <body>
+    <table style="border-spacing:0px; border-style:solid; border-width:3px">
+      <tr>
+        <td onmouseover="changeBGColor('red');" onmouseout="resetBGColor();">Rouge</td>
+        <td onmouseover="changeBGColor('blue');" onmouseout="resetBGColor();">Bleu</td>
+        <td onmouseover="changeBGColor('green');" onmouseout="resetBGColor();">Vert</td>
+        <td onmouseover="changeBGColor('gray');" onmouseout="resetBGColor();">Gris</td>
+      </tr>
+      <tr>
+        <td onmouseover="changeBGColor('purple');" onmouseout="resetBGColor();">Mauve</td>
+        <td onmouseover="changeBGColor('yellow');" onmouseout="resetBGColor();">Jaune</td>
+        <td onmouseover="changeBGColor('maroon');" onmouseout="resetBGColor();">Brun</td>
+        <td onmouseover="changeBGColor('silver');" onmouseout="resetBGColor();">Argent</td>
+      </tr>
+    </table>
+  </body>
+</html>

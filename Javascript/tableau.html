@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tableau de notes</title>
+    <link href="css/tableau.css" rel="stylesheet" type="text/css">
+
+    <script>
+      function checkMarks() {
+        "use strict";
+        var tdList = document.getElementsByTagName("td");
+        var lowMarks = 0;
+        var highMarks = 0;
+        for (var i = 0; i < tdList.length; i++) {
+          var tdElement = tdList[i];
+          var mark = parseInt(tdElement.innerHTML, 10);
+          if (!isNaN(mark)) {
+            if (mark < 60) {
+              lowMarks++;
+              tdElement.style.backgroundColor = "#FF0000";
+            } else if (mark > 90) {
+              highMarks++;
+              tdElement.style.backgroundColor = "#00FF00";
+            }
+          }
+        }
+        document.getElementById("result").innerHTML = "Résultat : " + lowMarks + " basses notes... et " + highMarks + " bonnes notes!";
+      }
+    </script>
+
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Étudiant</th>
+        <th>TP1</th>
+        <th>TP2</th>
+        <th>Intra</th>
+        <th>Final</th>
+      </tr>
+      <tr>
+        <td>Maurice Caplette</td>
+        <td class="note">45</td>
+        <td class="note">77</td>
+        <td class="note">87</td>
+        <td class="note">56</td>
+      </tr>
+      <tr>
+        <td>Julie Poitras</td>
+        <td class="note">66</td>
+        <td class="note">54</td>
+        <td class="note">98</td>
+        <td class="note">12</td>
+      </tr>
+      <tr>
+        <td>Benoît Léveillée</td>
+        <td class="note">88</td>
+        <td class="note">89</td>
+        <td class="note">100</td>
+        <td class="note">78</td>
+      </tr>
+      <tr>
+        <td>Marc Pouliot</td>
+        <td class="note">56</td>
+        <td class="note">77</td>
+        <td class="note">65</td>
+        <td class="note">76</td>
+      </tr>
+      <tr>
+        <td>Steeve Dalpé</td>
+        <td class="note">56</td>
+        <td class="note">67</td>
+        <td class="note">86</td>
+        <td class="note">56</td>
+      </tr>
+      <tr>
+        <td>Jonathan Pinchaud</td>
+        <td class="note">98</td>
+        <td class="note">97</td>
+        <td class="note">76</td>
+        <td class="note">68</td>
+      </tr>
+    </table>
+    <div>
+      <button onclick="checkMarks();">Vérifier les notes</button>
+    </div>
+    <p id="result"></p>
+  </body>
+</html>

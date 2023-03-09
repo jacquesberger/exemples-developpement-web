@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cookie</title>
+    <script>
+      function readDataCookie() {
+        var i, cookies = document.cookie.split("; ");
+        for (i = 0; i < cookies.length; i++) {
+          var characterIndex = cookies[i].indexOf("=");
+          var cookieName = cookies[i].substr(0, characterIndex);
+          var cookieValue = cookies[i].substr(characterIndex + 1);
+          if (cookieName === "data") {
+            return unescape(cookieValue);
+          }
+        }
+        return "";
+      }
+
+      function writeDataCookie(value) {
+        var expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 30);
+        document.cookie = "data=" + escape(value) + "; expires=" + expirationDate.toUTCString();
+      }
+
+      function displayData() {
+        var value = readDataCookie();
+        document.getElementById("result").innerHTML = value;
+      }
+
+      function saveData() {
+        writeDataCookie(document.getElementById("data").value);
+      }
+    </script>
+  </head>
+  <body onload="displayData();">
+    <p>
+      Voici la valeur du cookie au chargement de la page : <span id="result"></span>
+      <button onclick="displayData();">Mettre à jour</button>
+    </p>
+    <div>
+      Entrez une valeur quelconque : <input type="text" id="data">
+      <button onclick="saveData();">Sauvegarder</button>
+    </div>
+  </body>
+</html>

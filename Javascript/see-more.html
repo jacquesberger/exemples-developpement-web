@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Liste de langages</title>
+    <link href="css/see-more.css" rel="stylesheet" type="text/css">
+
+    <script>
+      function displayAll() {
+        var liList = document.getElementsByTagName("li");
+        for (var i = 0; i < liList.length; i++) {
+          liList[i].style.display = "list-item";
+        }
+        document.getElementById("clickable").innerHTML = "";
+      }
+    </script>
+
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>Java</li>
+        <li>C++</li>
+        <li>Ruby</li>
+        <li>Python</li>
+        <li>Groovy</li>
+        <li class="legacy">COBOL</li>
+        <li class="legacy">C</li>
+        <li class="legacy">FORTRAN</li>
+      </ul>
+      <span id="clickable" onclick="displayAll();"
+            style="color: white; background-color: black">Tout afficher</span>
+    </div>
+  </body>
+</html>

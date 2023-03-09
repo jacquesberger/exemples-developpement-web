@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Validation de formulaires</title>
+
+    <script>
+      function clearErrorMessages() {
+        document.getElementById("error_lname").innerHTML = "";
+        document.getElementById("error_fname").innerHTML = "";
+      }
+
+      function validateInputField(inputId, spanId) {
+        var value = document.getElementById(inputId).value;
+        if (value == null || value === "") {
+          document.getElementById(spanId).innerHTML = "Ce champ doit contenir une valeur!";
+          return false;
+        }
+        
+        return true;
+      }
+
+      function checkRequiredFields() {
+        clearErrorMessages();  
+        var field1 = validateInputField("nom", "error_lname");
+        var field2 = validateInputField("prenom", "error_fname"); 
+        return field1 && field2; 
+      }
+    </script>
+
+    <style>
+      span {
+        color: red;
+      }
+    </style>
+
+  </head>
+  <body>
+    <form action="form.php" method="post">
+      <div>
+        <label for="nom">Entrez votre nom : </label>
+        <input type="text" name="lname" id="nom">
+        <span id="error_lname"></span>
+        <br>
+        <label for="prenom">Entrez votre prénom : </label>
+        <input type="text" name="fname" id="prenom">
+        <span id="error_fname"></span>
+        <br>
+        <input type="submit" value="Envoyer">
+      </div>
+    </form>
+    <script>
+      document.getElementsByTagName("form")[0].addEventListener("submit", function(e) {
+        let result = checkRequiredFields();
+        if (!result) {
+          e.preventDefault();
+        }
+      });
+    </script>
+  </body>
+</html>

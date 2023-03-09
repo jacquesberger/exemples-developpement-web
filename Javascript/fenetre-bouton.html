@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ouvrir une fenêtre avec un bouton</title>
+    <script>
+      var blackWindow = null;
+
+      function openWindow() {
+        blackWindow = window.open("pour-ouvrir.html");
+      }
+
+      function openSizedWindow() {
+        blackWindow = window.open("pour-ouvrir.html", "blackwindow", "width=450,height=250");
+      }
+      
+      function closeWindow() {
+        if (blackWindow) {
+          blackWindow.close();
+          blackWindow = null;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p>Une fonctionnalité pour ouvrir une nouvelle fenêtre à l'aide
+      d'un bouton.</p>
+    <p>
+      <button onclick="openWindow();">Ouvrir la fenêtre noire</button>
+    </p>
+    <p>
+      <button onclick="openSizedWindow();">Ouvrir la fenêtre noire avec dimensions fixes</button>
+    </p>
+    <p>
+      <button onclick="closeWindow();">Fermer la fenêtre noire</button>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+th {
+	text-align: left;
+}
+
+td.note {
+	text-align: right;
+}
+
+table {
+	border-style: solid;
+}
