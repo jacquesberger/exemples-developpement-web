@@ -7,7 +7,7 @@
     </element>
   </start>
 
-  <define  name="documents">
+  <define name="documents">
     <element name="documents">
       <oneOrMore>
         <ref name="document" />
