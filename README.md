@@ -9,6 +9,10 @@ de ce matériel doit être conforme à la [LICENSE](LICENSE).
 
 # Matériel
 
+## Bootstrap
+
+Un exemple du framework Bootstrap est dans le répertoire [/Bootstrap](/Bootstrap).
+
 ## CSS
 
 Les exemples de CSS sont dans le répertoire [/CSS](/CSS). Le répertoire contient
@@ -80,6 +84,11 @@ Les exemples en Python sont dans le répertoire [/Python](/Python).
 
 * [SQLite](/Python/SQLite) : Des exemples de manipulation des données stockées
   dans SQLite.
+
+## Responsive Design
+
+Les techniques de base du responsive design sont présentées dans le répertoire
+[/ResponsiveDesign](/ResponsiveDesign).
 
 ## XML
 

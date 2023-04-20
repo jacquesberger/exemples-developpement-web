@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exemple d'image flexible</title>
+    <style>
+      body {
+        font: normal 100% Helvetica;
+      }
+
+      div {
+        border: solid;
+        margin-bottom: 1em;
+      }
+
+      p {
+        font-size: 0.90em;
+        margin: 0.5em;
+      }
+
+      .fixed {
+        width: 400px;
+      }
+
+      .flexible {
+        width: 50%;
+      }
+
+      .flexible img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>L'image originale</p>
+      <img src="fleur.png" alt="Une rose">
+    </div>
+    <div class="fixed">
+      <p>Le cadre fixe</p>
+      <img src="fleur.png" alt="Une rose">
+    </div>
+    <div class="flexible">
+      <p>Le cadre flexible</p>
+      <img src="fleur.png" alt="Une rose">
+    </div>
+  </body>
+</html>
