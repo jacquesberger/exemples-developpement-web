@@ -23,7 +23,7 @@ Exercices
 1. Faites une requête HTTP GET à l'adresse uqam.ca. Quelle est la version
    utilisée par le serveur qui vous répond?
 
-2. Allez sur la page du cours INF3190 en cliquant navigant sur le site. 
+2. Allez sur la page du cours INF3190 en navigant sur le site. 
    Trouvez la requête HTTP que le fureteur a envoyé pour produire la page du
    cours.
 
