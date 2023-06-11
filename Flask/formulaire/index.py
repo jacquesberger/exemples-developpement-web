@@ -27,17 +27,17 @@ def formulaire():
 
 @app.route('/envoyer', methods=['POST'])
 def donnees_formulaire():
-    print(request.form['name'])
-    print(request.form['fname'])
-    print(request.form['birthday'])
-    print(request.form['birthmonth'])
-    print(request.form['birthyear'])
-    print(request.form['email'])
-    print(request.form['username'])
-    print(request.form['password'])
-    print(request.form['salary'])
-    print(request.form['publicity'])
-    print(request.form['rating'])
+    print(request.form.get('name'))
+    print(request.form.get('fname'))
+    print(request.form.get('birthday'))
+    print(request.form.get('birthmonth'))
+    print(request.form.get('birthyear'))
+    print(request.form.get('email'))
+    print(request.form.get('username'))
+    print(request.form.get('password'))
+    print(request.form.get('salary'))
+    print(request.form.get('publicity'))
+    print(request.form.get('rating'))
     # Excellent endroit pour valider les données et les sauvegarder dans une
     # base de données.
     # Prévoir une route pour afficher les erreurs.
