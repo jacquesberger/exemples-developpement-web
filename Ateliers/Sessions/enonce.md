@@ -8,13 +8,13 @@ authentifié.
 Objectifs
 ---------
 
-* Mettre en place une autre forme d'authentification.
+* Mettre en place une forme d'authentification.
 * Utiliser des sessions.
 
 Exercices
 ---------
 
-1. Vous devez mettre en place une authentification [Google Sign-In](https://developers.google.com/identity/sign-in/web/sign-in)
+1. Vous devez mettre en place une authentification 
    sur votre logiciel. L'authentification doit permettre de créer une session au
    niveau du serveur.
 
