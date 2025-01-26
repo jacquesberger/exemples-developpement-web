@@ -28,8 +28,8 @@ Exercices
 3. Faites en sorte que le titre soit plus petit de 25%.
 
 4. Ajoutez des classes différentes pour chacun des paragraphes de la page. À
-   l'aide de ces classes, faites en sorte que le premier paragraphe soit bleu,
-   le deuxième blanc et le troisième rouge.
+   l'aide de ces classes, faites en sorte que le premier paragraphe soit vert,
+   le deuxième rouge et le troisième jaune.
 
 5. Placez votre nom dans un élément `span` en plein milieu du premier
    paragraphe.
