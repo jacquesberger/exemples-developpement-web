@@ -16,9 +16,9 @@ import sqlite3
 
 connection = sqlite3.connect('musique.db')
 cursor = connection.cursor()
-cursor.execute("select * from album")
+cursor.execute("select titre, annee from album")
 for row in cursor:
-    identifier, album, year, artiste_id, publisher_id = row
+    album, year = row
     print("%s, %d" % (album, year))
 
 connection.close()
